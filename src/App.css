@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+
+#memePic{
+  max-width: 800px;
+  max-height: 800px;
+}
+
+.memeText{
+  font-family: impact;
+  font-size: 30px;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-width: 1.00px; 
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+
+#textBottom{
+  bottom: 8px;
+}
+
+.memeContainer {
+  position: relative;
+}
