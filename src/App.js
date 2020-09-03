@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import domtoimage from 'dom-to-image';
 import './App.css';
+
 
 function App() {
 
   const [meme, changeMeme] = useState();
-  const [memeText, editText] = useState(["mememe", "youyuuy"]);
+  const [memeText, editText] = useState(["Enter Text", "Add Bottom Text"]);
 
   const loadMemes = () => {
     fetch('https://api.imgflip.com/get_memes')
@@ -17,6 +19,11 @@ function App() {
     const textCopy = [...memeText];
     textCopy[num] = document.querySelectorAll("input")[num].value;
     editText(textCopy);
+    if(textCopy[num].length > 25) {
+      console.log("too big");
+      document.querySelectorAll(".memeText")[num].style.fontSize = "20px";
+      console.log(document.querySelectorAll(".memeText")[num]);
+    }
   }
 
   const addMeme = () => {
@@ -65,30 +72,41 @@ function App() {
     elmnt.onmousedown = clicker;
   }
 
+  const reset = () => {
+    changeMeme(null);
+  }
 
-  
-  
-  
-
-  
-  
-  
+  const download = () => {
+    domtoimage.toJpeg(document.querySelector(".memeContainer"), {quality: 0.95}, {height: meme.height}, {width: meme.width})
+    .then(function (dataUrl) {
+      let link = document.createElement('a');
+      link.download = 'my-meme.jpeg';
+      link.href = dataUrl;
+      link.click();
+    });
+  }
 
   return (
     <div className="App">
       {meme ? 
         <div className="memeContainer">
-          <p className="memeText">{memeText[0]}</p>
+          <p className="memeText" >{memeText[0]}</p>
           <p className="memeText" id="textBottom">{memeText[1]}</p>
-          <img id="memePic" src={meme.url}/>
+          <img id="memePic" src={meme.url} unselectable="on"/>
         </div>
       : 
       null
       }
-      <input onChange={() => {changeText(0)}}></input>
-      <input onChange={() => {changeText(1)}}></input>
-      <button onClick={loadMemes}>Load fresh meme!</button>
-      <input onChange={addMeme} type="file" id="input" multiple></input>
+      <div className="inputFields"> 
+        <input onChange={() => {changeText(0)}}></input>
+        <input onChange={() => {changeText(1)}}></input>
+      </div>
+      <div className="buttons">
+        <button className="button" onClick={loadMemes}>Load fresh meme!</button>
+        <button className="button" onClick={reset}>Reset</button>
+        <button className="button" onClick={download}>Download</button>
+        <input className="button" onChange={addMeme} type="file" multiple></input>
+      </div>
     </div>
   );
 }
