@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import domtoimage from 'dom-to-image';
+import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
 
@@ -64,7 +65,7 @@ function App() {
       pos4 = e.clientY;
       console.log(pos1 + " " + pos2 + " " + pos3 + " " + pos4);
       console.log(elmnt.offsetTop);
-      elmnt.style.top = (elmnt.offsetTop - pos2 - 30) + "px";
+      elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
       elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
     }
 
@@ -77,8 +78,9 @@ function App() {
   }
 
   const download = () => {
-    domtoimage.toJpeg(document.querySelector(".memeContainer"), {quality: 0.95}, {height: meme.height}, {width: meme.width})
+    domtoimage.toJpeg(document.querySelector(".card-body"), {quality: 0.95}, {height: meme.height < 450 ? meme.height : 450}, {width: meme.width < 750 ? meme.width: 750})
     .then(function (dataUrl) {
+      console.log(meme.height);
       let link = document.createElement('a');
       link.download = 'my-meme.jpeg';
       link.href = dataUrl;
@@ -90,17 +92,23 @@ function App() {
     <div className="App">
       {meme ? 
         <div className="memeContainer">
-          <p className="memeText" >{memeText[0]}</p>
-          <p className="memeText" id="textBottom">{memeText[1]}</p>
-          <img id="memePic" src={meme.url} unselectable="on"/>
+          <div className="card" style={{border: "none"}}>
+            <div className="card-body">
+              <p className="memeText" >{memeText[0]}</p>
+              <p className="memeText" id="textBottom">{memeText[1]}</p>
+              <img id="memePic" src={meme.url} unselectable="on"/>
+            </div>
+            <div className="card-body">
+              <div className="inputFields"> 
+                <input onChange={() => {changeText(0)}}></input>
+                <input onChange={() => {changeText(1)}}></input>
+              </div>
+            </div>
+          </div>
         </div>
       : 
       null
       }
-      <div className="inputFields"> 
-        <input onChange={() => {changeText(0)}}></input>
-        <input onChange={() => {changeText(1)}}></input>
-      </div>
       <div className="buttons">
         <button className="button" onClick={loadMemes}>Load fresh meme!</button>
         <button className="button" onClick={reset}>Reset</button>
