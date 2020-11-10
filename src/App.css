@@ -8,19 +8,16 @@
 }
 
 .App {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
-#memePic{
-  max-width: 750px;
-  max-height: 450px;
+#memePic {
   pointer-events: none;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.memeText{
+.memeText {
   font-family: impact;
   font-size: 30px;
   max-height: 30px;
@@ -29,25 +26,25 @@
   margin-right: auto;
   -webkit-text-fill-color: white;
   -webkit-text-stroke-color: black;
-  -webkit-text-stroke-width: 1.00px; 
+  -webkit-text-stroke-width: 1px;
   position: absolute;
   cursor: pointer;
 }
 
-.memeTextSmall{
+.memeTextSmall {
   font-family: impact;
   font-size: 20px;
   max-height: 20px;
   width: 100%;
   -webkit-text-fill-color: white;
   -webkit-text-stroke-color: black;
-  -webkit-text-stroke-width: 1.00px; 
+  -webkit-text-stroke-width: 1px;
   position: absolute;
   text-align: center;
   cursor: pointer;
 }
 
-#textBottom{
+#textBottom {
   bottom: 85px;
 }
 
