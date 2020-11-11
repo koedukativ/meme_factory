@@ -7,14 +7,15 @@
   margin: 0px 20px;
 }
 
-.App {
+.templateContainer {
   display: flex;
-  justify-content: center;
   align-items: center;
-}
-
-#memePic {
-  pointer-events: none;
+  justify-content: center;
+  background: rgba(158, 158, 158, 0.068);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  width: auto;
+  height: 30rem;
 }
 
 .memeText {
@@ -48,17 +49,9 @@
   bottom: 85px;
 }
 
-.memeContainer {
-  position: relative;
-  width: 800px;
-  height: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.pic {
-  max-width: 800px;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+#memePic {
+  pointer-events: none;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
 }
