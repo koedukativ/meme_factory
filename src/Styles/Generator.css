@@ -22,7 +22,7 @@
   font-family: impact;
   font-size: 30px;
   max-height: 30px;
-  width: 100%;
+  width: 200px;
   margin-left: auto;
   margin-right: auto;
   -webkit-text-fill-color: white;
@@ -30,13 +30,14 @@
   -webkit-text-stroke-width: 1px;
   position: absolute;
   cursor: pointer;
+  background: transparent;
 }
 
 .memeTextSmall {
   font-family: impact;
   font-size: 20px;
   max-height: 20px;
-  width: 100%;
+  width: 200px;
   -webkit-text-fill-color: white;
   -webkit-text-stroke-color: black;
   -webkit-text-stroke-width: 1px;
@@ -46,7 +47,7 @@
 }
 
 #textBottom {
-  bottom: 85px;
+  top: 80px;
 }
 
 #memePic {

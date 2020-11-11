@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import domtoimage from "dom-to-image";
+import domtoimage from "dom-to-image-more";
 import "../Styles/Generator.css";
 
 const Generator = ({ meme, changeMeme }) => {
@@ -76,10 +76,10 @@ const Generator = ({ meme, changeMeme }) => {
   const download = () => {
     domtoimage
       .toJpeg(
-        document.querySelector(".card-body"),
-        { quality: 0.95 },
-        { height: meme.height < 450 ? meme.height : 450 },
-        { width: meme.width < 750 ? meme.width : 750 }
+        document.querySelector("#memePic"),
+        { quality: 0.95 }
+        /*         { height: meme.height < 450 ? meme.height : 450 },
+        { width: meme.width < 750 ? meme.width : 750 } */
       )
       .then(function (dataUrl) {
         let link = document.createElement("a");
