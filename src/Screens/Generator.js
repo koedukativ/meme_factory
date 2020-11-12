@@ -24,7 +24,7 @@ const Generator = ({ meme, changeMeme }) => {
 
   const changeText = (num) => {
     const textCopy = [...memeText];
-    textCopy[num].text = document.querySelectorAll("input")[num].value;
+    textCopy[num].text = document.querySelectorAll("input")[num + 1].value;
     editText(textCopy);
     if (textCopy[num].length > 25) {
       document.querySelectorAll(".memeText")[num].style.fontSize = "20px";
@@ -32,7 +32,6 @@ const Generator = ({ meme, changeMeme }) => {
   };
 
   const handleDrag = (event, position, index) => {
-    console.log(position);
     let textCopy = [...memeText];
     const { x, y } = position;
     textCopy[index].position = { x: x, y: y };
@@ -92,19 +91,6 @@ const Generator = ({ meme, changeMeme }) => {
         </div>
       </div>
       <div className="options">
-        <div className="inputFields">
-          {memeText
-            ? memeText.map((element, index) => (
-                <input
-                  className="textInput"
-                  key={index}
-                  onChange={() => {
-                    changeText(index);
-                  }}
-                />
-              ))
-            : null}
-        </div>
         <div className="buttons">
           <button className="button" onClick={loadMemes}>
             Load Random Meme
@@ -121,6 +107,19 @@ const Generator = ({ meme, changeMeme }) => {
             type="file"
             multiple
           ></input>
+        </div>
+        <div className="inputFields">
+          {memeText
+            ? memeText.map((element, index) => (
+                <input
+                  className="textInput"
+                  key={index}
+                  onChange={() => {
+                    changeText(index);
+                  }}
+                />
+              ))
+            : null}
         </div>
       </div>
     </div>

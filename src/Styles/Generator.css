@@ -1,9 +1,10 @@
 .button {
   margin: 15px;
-  width: 250px;
+  width: 100%;
 }
 
 .buttons {
+  width: 30%;
   margin: 0px 20px;
 }
 
@@ -12,8 +13,10 @@
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
-  width: auto;
+  width: 50%;
   height: 30rem;
+  margin: 2rem;
+  background: white;
 }
 
 .memeDownload {
@@ -23,6 +26,7 @@
   width: auto;
   height: 100%;
   padding: 0;
+  background: transparent;
 }
 
 .memeText {
@@ -55,4 +59,30 @@
   pointer-events: none;
   max-width: 100%;
   max-height: 100%;
+}
+
+.App {
+  display: flex;
+}
+
+.options {
+  width: 50%;
+}
+
+@media screen and (min-width: 768px) {
+  .selectScreen {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .selectScreen {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .selectScreen {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
