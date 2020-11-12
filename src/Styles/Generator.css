@@ -11,9 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(158, 158, 158, 0.068);
   border-radius: 0.5rem;
-  padding: 2rem;
   width: auto;
   height: 30rem;
 }
@@ -23,16 +21,15 @@
   align-items: center;
   justify-content: center;
   width: auto;
-  height: 30rem;
+  height: 100%;
+  padding: 0;
 }
 
 .memeText {
   font-family: impact;
   font-size: 30px;
   max-height: 30px;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 400px;
   -webkit-text-fill-color: white;
   -webkit-text-stroke-color: black;
   -webkit-text-stroke-width: 1px;

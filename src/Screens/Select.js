@@ -21,13 +21,22 @@ function Select() {
 
   return (
     <>
-      <h1 className="title"> Meme Machine</h1>
-      {template ? <Generator meme={template} changeMeme={setTemplate} /> : null}
+      <h1 className="title" id="top">
+        Meme Machine
+      </h1>
+      {template ? (
+        <Generator
+          className="generator"
+          meme={template}
+          changeMeme={setTemplate}
+        />
+      ) : null}
       <section className="selectScreen">
         {memes ? (
-          memes.map((element) => (
+          memes.map((element, index) => (
             <a
-              href="#"
+              key={index}
+              href="#top"
               onClick={() => {
                 setTemplate(element);
               }}

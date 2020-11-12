@@ -4,7 +4,15 @@ import domtoimage from "dom-to-image-more";
 import "../Styles/Generator.css";
 
 const Generator = ({ meme, changeMeme }) => {
-  const [memeText, editText] = useState(["Enter Text", "Add Bottom Text"]);
+  const [memeText, editText] = useState([]);
+  const nodeRef = React.useRef(null);
+
+  useEffect(() => {
+    editText([
+      { text: "Enter Text", position: { x: 0, y: -150 } },
+      { text: "Add More Text", position: { x: 0, y: 150 } },
+    ]);
+  }, [meme]);
 
   const loadMemes = () => {
     fetch("https://api.imgflip.com/get_memes")
@@ -16,11 +24,19 @@ const Generator = ({ meme, changeMeme }) => {
 
   const changeText = (num) => {
     const textCopy = [...memeText];
-    textCopy[num] = document.querySelectorAll("input")[num].value;
+    textCopy[num].text = document.querySelectorAll("input")[num].value;
     editText(textCopy);
     if (textCopy[num].length > 25) {
       document.querySelectorAll(".memeText")[num].style.fontSize = "20px";
     }
+  };
+
+  const handleDrag = (event, position, index) => {
+    console.log(position);
+    let textCopy = [...memeText];
+    const { x, y } = position;
+    textCopy[index].position = { x: x, y: y };
+    editText(textCopy);
   };
 
   const addMeme = () => {
@@ -54,46 +70,58 @@ const Generator = ({ meme, changeMeme }) => {
           style={{
             position: "relative",
             overflow: "hidden",
-            padding: "0",
           }}
         >
-          <Draggable bounds="parent">
-            <p className="memeText">{memeText[0]}</p>
-          </Draggable>
-          <Draggable bounds="parent">
-            <p className="memeText">{memeText[1]}</p>
-          </Draggable>
+          {memeText
+            ? memeText.map((element, index) => (
+                <Draggable
+                  key={index}
+                  bounds="parent"
+                  nodeRef={nodeRef}
+                  position={memeText[index].position}
+                  onDrag={(e, position) => handleDrag(e, position, index)}
+                >
+                  <p className="memeText" ref={nodeRef}>
+                    {element.text}
+                  </p>
+                </Draggable>
+              ))
+            : null}
+
           <img id="memePic" src={meme.url} unselectable="on" />
         </div>
       </div>
-      <div className="inputFields">
-        <input
-          onChange={() => {
-            changeText(0);
-          }}
-        ></input>
-        <input
-          onChange={() => {
-            changeText(1);
-          }}
-        ></input>
-      </div>
-      <div className="buttons">
-        <button className="button" onClick={loadMemes}>
-          Load Random Meme
-        </button>
-        <button className="button" onClick={reset}>
-          Close Editior
-        </button>
-        <button className="button" onClick={download}>
-          Download
-        </button>
-        <input
-          className="button"
-          onChange={addMeme}
-          type="file"
-          multiple
-        ></input>
+      <div className="options">
+        <div className="inputFields">
+          {memeText
+            ? memeText.map((element, index) => (
+                <input
+                  className="textInput"
+                  key={index}
+                  onChange={() => {
+                    changeText(index);
+                  }}
+                />
+              ))
+            : null}
+        </div>
+        <div className="buttons">
+          <button className="button" onClick={loadMemes}>
+            Load Random Meme
+          </button>
+          <button className="button" onClick={reset}>
+            Close Editior
+          </button>
+          <button className="button" onClick={download}>
+            Download
+          </button>
+          <input
+            className="button"
+            onChange={addMeme}
+            type="file"
+            multiple
+          ></input>
+        </div>
       </div>
     </div>
   );
