@@ -3,17 +3,28 @@ import Draggable from "react-draggable";
 import domtoimage from "dom-to-image-more";
 import "../Styles/Generator.css";
 
+// Generator section => responsive
+// Upload own images
+// Design
+// Add more text
+
 const Generator = ({ meme, changeMeme }) => {
   const [memeText, editText] = useState([]);
   const nodeRef = React.useRef(null);
 
+  // Upon a template change, the input fields are reset and re-aligned to the new template
   useEffect(() => {
     editText([
       { text: "Enter Text", position: { x: 0, y: -150 } },
       { text: "Add More Text", position: { x: 0, y: 150 } },
     ]);
+
+    document
+      .querySelectorAll(".textInput")
+      .forEach((input) => (input.value = ""));
   }, [meme]);
 
+  // Loads a random meme from imgflip
   const loadMemes = () => {
     fetch("https://api.imgflip.com/get_memes")
       .then((response) => response.json())
@@ -22,6 +33,7 @@ const Generator = ({ meme, changeMeme }) => {
       );
   };
 
+  // Takes input number and edits the corresponding text
   const changeText = (num) => {
     const textCopy = [...memeText];
     textCopy[num].text = document.querySelectorAll("input")[num + 1].value;
@@ -31,6 +43,7 @@ const Generator = ({ meme, changeMeme }) => {
     }
   };
 
+  // Drag Handler for Draggable. Saves all text positions
   const handleDrag = (event, position, index) => {
     let textCopy = [...memeText];
     const { x, y } = position;
@@ -50,6 +63,7 @@ const Generator = ({ meme, changeMeme }) => {
     changeMeme(null);
   };
 
+  // Uses domtoimage to download the .memeDownload <div>
   const download = () => {
     domtoimage
       .toJpeg(document.querySelector(".memeDownload"), { quality: 1.0 })

@@ -16,7 +16,6 @@
   width: 50%;
   height: 30rem;
   margin: 2rem;
-  background: white;
 }
 
 .memeDownload {
@@ -27,6 +26,7 @@
   height: 100%;
   padding: 0;
   background: transparent;
+  border: solid rgb(58, 128, 116);
 }
 
 .memeText {
