@@ -1,10 +1,31 @@
-.button {
-  margin: 15px;
-  width: 100%;
+.App {
+  display: flex;
+  background: rgba(255, 255, 255, 0.514);
+  border-radius: 1rem;
+  margin: 5rem;
 }
 
-.buttons {
+.options {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button,
+.textInput {
+  margin: 15px;
   width: 30%;
+}
+
+.buttons,
+.inputFields {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
   margin: 0px 20px;
 }
 
@@ -13,10 +34,9 @@
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
-  width: 50%;
-  height: 30rem;
-  margin: 2rem;
-  border: solid rgb(58, 128, 116);
+  width: 60%;
+  height: 30vw;
+  margin: 4rem;
 }
 
 .memeDownload {
@@ -31,7 +51,6 @@
 
 .memeText {
   font-family: impact;
-  font-size: 30px;
   max-height: 30px;
   max-width: 400px;
   -webkit-text-fill-color: white;
@@ -42,32 +61,11 @@
   background: transparent;
 }
 
-.memeTextSmall {
-  font-family: impact;
-  font-size: 20px;
-  max-height: 20px;
-  width: 200px;
-  -webkit-text-fill-color: white;
-  -webkit-text-stroke-color: black;
-  -webkit-text-stroke-width: 1px;
-  position: absolute;
-  text-align: center;
-  cursor: pointer;
-}
-
 #memePic {
   pointer-events: none;
   max-width: 100%;
   height: 100%;
   object-fit: contain;
-}
-
-.App {
-  display: flex;
-}
-
-.options {
-  width: 50%;
 }
 
 @media screen and (min-width: 768px) {

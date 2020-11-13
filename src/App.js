@@ -1,6 +1,6 @@
 import React from "react";
 import Select from "./Screens/Select";
-import "./Styles/App.css";
+import "./App.sass";
 
 function App() {
   return <Select />;
