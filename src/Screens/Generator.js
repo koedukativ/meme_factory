@@ -3,6 +3,7 @@ import Draggable from "react-draggable";
 import domtoimage from "dom-to-image-more";
 import "../Styles/Generator.css";
 
+// Add more text inputs
 // Generator section => responsive
 // Upload own images
 // Design
@@ -51,6 +52,12 @@ const Generator = ({ meme, changeMeme }) => {
     editText(textCopy);
   };
 
+  const addText = () => {
+    const textCopy = [...memeText];
+    textCopy.push({ text: "More Text", position: { x: 0, y: 0 } });
+    editText(textCopy);
+  };
+
   const addMeme = () => {
     const newMeme = {};
     newMeme.url = URL.createObjectURL(
@@ -83,6 +90,9 @@ const Generator = ({ meme, changeMeme }) => {
           style={{
             position: "relative",
             overflow: "hidden",
+            height: document.querySelector("#memePic")
+              ? document.querySelector("#memePic").height
+              : "100%",
           }}
         >
           {memeText
@@ -111,6 +121,9 @@ const Generator = ({ meme, changeMeme }) => {
           </button>
           <button className="button" onClick={reset}>
             Close Editior
+          </button>
+          <button className="button" onClick={addText}>
+            Add Text
           </button>
           <button className="button" onClick={download}>
             Download

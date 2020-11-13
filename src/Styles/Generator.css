@@ -16,6 +16,7 @@
   width: 50%;
   height: 30rem;
   margin: 2rem;
+  border: solid rgb(58, 128, 116);
 }
 
 .memeDownload {
@@ -23,10 +24,8 @@
   align-items: center;
   justify-content: center;
   width: auto;
-  height: 100%;
   padding: 0;
   background: transparent;
-  border: solid rgb(58, 128, 116);
 }
 
 .memeText {
