@@ -90,9 +90,6 @@ const Generator = ({ meme, changeMeme }) => {
           style={{
             position: "relative",
             overflow: "hidden",
-            height: document.querySelector("#memePic")
-              ? document.querySelector("#memePic").height
-              : "100%",
           }}
         >
           {memeText
