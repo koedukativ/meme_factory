@@ -3,12 +3,10 @@ import Draggable from "react-draggable";
 import domtoimage from "dom-to-image-more";
 import "../Styles/Generator.css";
 
-// Generator section => responsive
+// Consistent meme size
 // Upload own images
 // Design
 // Bugs: see repo
-// Change font size
-// Two columns for Meme Generator; change responsively
 
 const Generator = ({ meme, changeMeme }) => {
   const [memeText, editText] = useState([]);

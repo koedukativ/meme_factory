@@ -32,7 +32,9 @@ function Select() {
           meme={template}
           changeMeme={setTemplate}
         />
-      ) : null}
+      ) : (
+        <p className="title"> Choose a template!</p>
+      )}
       <div className="columns is-multiline selectScreen">
         <div className="column is-full-mobile is-half-tablet is-one-quarter-desktop is-one-quarter-widescreen">
           {memes ? (
@@ -60,7 +62,7 @@ function Select() {
         <div className="column is-full-mobile is-half-tablet is-one-quarter-desktop is-one-quarter-widescreen">
           {memes ? (
             memes.map((element, index) => {
-              if (index < 24 || index > 49) {
+              if (index < 25 || index > 49) {
               } else {
                 return (
                   <div className="box" key={index}>
@@ -84,7 +86,7 @@ function Select() {
         <div className="column is-full-mobile is-half-tablet is-one-quarter-desktop is-one-quarter-widescreen">
           {memes ? (
             memes.map((element, index) => {
-              if (index < 49 || index > 74) {
+              if (index < 50 || index > 76) {
               } else {
                 return (
                   <div className="box" key={index}>
@@ -108,7 +110,7 @@ function Select() {
         <div className="column is-full-mobile is-half-tablet is-one-quarter-desktop is-one-quarter-widescreen">
           {memes ? (
             memes.map((element, index) => {
-              if (index < 75) {
+              if (index < 77) {
               } else {
                 return (
                   <div className="box" key={index}>
