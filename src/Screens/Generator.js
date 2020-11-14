@@ -41,7 +41,7 @@ const Generator = ({ meme, changeMeme }) => {
   // Takes input number and edits the corresponding text
   const changeText = (num) => {
     const textCopy = [...memeText];
-    textCopy[num].text = document.querySelectorAll("input")[num + 1].value;
+    textCopy[num].text = document.querySelectorAll("input")[num].value;
     editText(textCopy);
   };
 
@@ -86,71 +86,73 @@ const Generator = ({ meme, changeMeme }) => {
   };
 
   return (
-    <div className="App">
-      <div className="templateContainer">
-        <div
-          className="memeDownload"
-          style={{
-            position: "relative",
-            overflow: "hidden",
-          }}
-        >
-          {memeText
-            ? memeText.map((element, index) => (
-                <Draggable
-                  key={index}
-                  bounds="parent"
-                  nodeRef={nodeRef}
-                  position={memeText[index].position}
-                  onDrag={(e, position) => handleDrag(e, position, index)}
-                >
-                  <p className="memeText" ref={nodeRef} style={textStyle}>
-                    {element.text}
-                  </p>
-                </Draggable>
-              ))
-            : null}
-
-          <img id="memePic" src={meme.url} unselectable="on" />
+    <section className="section">
+      <div className="container">
+        <div className="columns is-multiline is-vcentered box">
+          <div className="column is-three-fifths-desktop is-full-tablet is-full-mobile">
+            <div className="templateContainer">
+              <div
+                className="memeDownload"
+                style={{ position: "relative", overflow: "hidden" }}
+              >
+                {memeText
+                  ? memeText.map((element, index) => (
+                      <Draggable
+                        key={index}
+                        bounds="parent"
+                        nodeRef={nodeRef}
+                        position={memeText[index].position}
+                        onDrag={(e, position) => handleDrag(e, position, index)}
+                      >
+                        <p className="memeText" ref={nodeRef} style={textStyle}>
+                          {element.text}
+                        </p>
+                      </Draggable>
+                    ))
+                  : null}
+                <img id="memePic" src={meme.url} unselectable="on" />
+              </div>
+            </div>
+          </div>
+          <div className="column is-two-fifths-desktop is-full-tablet is-full-mobile options">
+            <div className="buttons">
+              <button className="button is-primary" onClick={loadMemes}>
+                Load Random Meme
+              </button>
+              <button className="button is-link" onClick={addText}>
+                Add Text
+              </button>
+              <button className="button is-success" onClick={download}>
+                Download
+              </button>
+              <button className="button is-warning" onClick={reset}>
+                Close Editior
+              </button>
+              {/*               <input
+                className="button"
+                onChange={addMeme}
+                type="file"
+                multiple
+              ></input> */}
+            </div>
+            <div className="inputFields">
+              {memeText
+                ? memeText.map((element, index) => (
+                    <input
+                      className="textInput"
+                      key={index}
+                      placeholder="Enter Text"
+                      onChange={() => {
+                        changeText(index);
+                      }}
+                    />
+                  ))
+                : null}
+            </div>
+          </div>
         </div>
       </div>
-      <div className="options">
-        <div className="buttons">
-          <button className="button is-primary" onClick={loadMemes}>
-            Load Random Meme
-          </button>
-          <button className="button is-warning" onClick={reset}>
-            Close Editior
-          </button>
-          <button className="button is-link" onClick={addText}>
-            Add Text
-          </button>
-          <button className="button is-success" onClick={download}>
-            Download
-          </button>
-          <input
-            className="button"
-            onChange={addMeme}
-            type="file"
-            multiple
-          ></input>
-        </div>
-        <div className="inputFields">
-          {memeText
-            ? memeText.map((element, index) => (
-                <input
-                  className="textInput"
-                  key={index}
-                  placeholder="Enter Text"
-                  onChange={() => {
-                    changeText(index);
-                  }}
-                />
-              ))
-            : null}
-        </div>
-      </div>
-    </div>
+    </section>
   );
 };
 

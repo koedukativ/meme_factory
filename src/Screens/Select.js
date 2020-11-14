@@ -33,8 +33,7 @@ function Select() {
           changeMeme={setTemplate}
         />
       ) : null}
-      {/*       <section className="selectScreen"> */}
-      <div className="columns is-multiline">
+      <div className="columns is-multiline selectScreen">
         <div className="column is-full-mobile is-half-tablet is-one-quarter-desktop is-one-quarter-widescreen">
           {memes ? (
             memes.map((element, index) => {
@@ -132,7 +131,6 @@ function Select() {
           )}
         </div>
       </div>
-      {/*       </section> */}
     </>
   );
 }
