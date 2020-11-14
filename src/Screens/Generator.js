@@ -118,7 +118,12 @@ const Generator = ({ meme, changeMeme }) => {
                       </Draggable>
                     ))
                   : null}
-                <img id="memePic" src={meme.url} unselectable="on" />
+                <img
+                  id="memePic"
+                  src={meme.url}
+                  alt={`${meme.name} Meme`}
+                  unselectable="on"
+                />
               </div>
             </div>
           </div>
@@ -136,21 +141,21 @@ const Generator = ({ meme, changeMeme }) => {
               <button className="button is-warning" onClick={reset}>
                 Close Editior
               </button>
-              <p class="buttons">
+              <p className="buttons">
                 <button
-                  class="button is-medium is-info"
+                  className="button is-info"
                   onClick={() => changeSize(-2)}
                 >
-                  <span class="icon is-small">
-                    <i class="fas fa-heading">a</i>
+                  <span className="icon is-small">
+                    <i className="fas fa-heading">a</i>
                   </span>
                 </button>
                 <button
-                  class="button is-medium is-info"
+                  className="button is-info"
                   onClick={() => changeSize(2)}
                 >
-                  <span class="icon">
-                    <i class="fas fa-heading fa-lg">A</i>
+                  <span className="icon">
+                    <i className="fas fa-heading fa-lg">A</i>
                   </span>
                 </button>
               </p>

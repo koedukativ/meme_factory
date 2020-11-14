@@ -40,9 +40,8 @@ function Select() {
               if (index > 24) {
               } else {
                 return (
-                  <div className="box">
+                  <div className="box" key={index}>
                     <a
-                      key={index}
                       href="#top"
                       onClick={() => {
                         setTemplate(element);
@@ -64,7 +63,7 @@ function Select() {
               if (index < 24 || index > 49) {
               } else {
                 return (
-                  <div className="box">
+                  <div className="box" key={index}>
                     <a
                       key={index}
                       href="#top"
@@ -88,7 +87,7 @@ function Select() {
               if (index < 49 || index > 74) {
               } else {
                 return (
-                  <div className="box">
+                  <div className="box" key={index}>
                     <a
                       key={index}
                       href="#top"
@@ -112,7 +111,7 @@ function Select() {
               if (index < 75) {
               } else {
                 return (
-                  <div className="box">
+                  <div className="box" key={index}>
                     <a
                       key={index}
                       href="#top"
