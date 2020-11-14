@@ -69,6 +69,14 @@ const Generator = ({ meme, changeMeme }) => {
     changeMeme(newMeme);
   };
 
+  const changeSize = (increase) => {
+    let textStyleCopy = { ...textStyle };
+    textStyleCopy.fontSize += increase;
+    if (textStyleCopy.fontSize > 10 && textStyleCopy.fontSize < 46) {
+      changeTextStyle(textStyleCopy);
+    }
+  };
+
   const reset = () => {
     changeMeme(null);
   };
@@ -128,6 +136,24 @@ const Generator = ({ meme, changeMeme }) => {
               <button className="button is-warning" onClick={reset}>
                 Close Editior
               </button>
+              <p class="buttons">
+                <button
+                  class="button is-medium is-info"
+                  onClick={() => changeSize(-2)}
+                >
+                  <span class="icon is-small">
+                    <i class="fas fa-heading">a</i>
+                  </span>
+                </button>
+                <button
+                  class="button is-medium is-info"
+                  onClick={() => changeSize(2)}
+                >
+                  <span class="icon">
+                    <i class="fas fa-heading fa-lg">A</i>
+                  </span>
+                </button>
+              </p>
               {/*               <input
                 className="button"
                 onChange={addMeme}
