@@ -10,7 +10,7 @@ import "../Styles/Generator.css";
 // Select screen DRY
 // Bugs: see repo
 
-const Generator = ({ meme, changeMeme }) => {
+const Generator = ({ meme, changeMeme, loadMeme }) => {
   const [memeText, editText] = useState([]);
   const [textStyle, changeTextStyle] = useState({
     fontSize: 30,
@@ -28,15 +28,6 @@ const Generator = ({ meme, changeMeme }) => {
       .querySelectorAll(".textInput")
       .forEach((input) => (input.value = ""));
   }, [meme]);
-
-  // Loads a random meme from imgflip
-  const loadMemes = () => {
-    fetch("https://api.imgflip.com/get_memes")
-      .then((response) => response.json())
-      .then((response) =>
-        changeMeme(response.data.memes[Math.floor(Math.random() * 100)])
-      );
-  };
 
   // Takes input number and edits the corresponding text
   const changeText = (num) => {
@@ -129,7 +120,7 @@ const Generator = ({ meme, changeMeme }) => {
           </div>
           <div className="column is-two-fifths-desktop is-full-tablet is-full-mobile options">
             <div className="buttons">
-              <button className="button is-primary" onClick={loadMemes}>
+              <button className="button is-primary" onClick={loadMeme}>
                 Load Random Meme
               </button>
               <button className="button is-link" onClick={addText}>

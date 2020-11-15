@@ -17,6 +17,15 @@ function Select() {
       });
   };
 
+  // Loads a random meme from imgflip
+  const loadRandomMeme = () => {
+    fetch("https://api.imgflip.com/get_memes")
+      .then((response) => response.json())
+      .then((response) =>
+        setTemplate(response.data.memes[Math.floor(Math.random() * 100)])
+      );
+  };
+
   useEffect(() => {
     loadMemes();
   }, []);
@@ -31,9 +40,15 @@ function Select() {
           className="generator"
           meme={template}
           changeMeme={setTemplate}
+          loadMeme={loadRandomMeme}
         />
       ) : (
-        <p className="title"> Choose a template! or</p>
+        <section className="title">
+          <p className="title"> Choose a template! or</p>
+          <button className="button is-primary" onClick={loadRandomMeme}>
+            Load Random Meme
+          </button>
+        </section>
       )}
       <div className="columns is-multiline selectScreen">
         <div className="column is-full-mobile is-half-tablet is-one-quarter-desktop is-one-quarter-widescreen">
