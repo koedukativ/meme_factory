@@ -1,6 +1,6 @@
 ## Project Overview
 
-![Project Overview](img/interface.png)
+![Project Overview](img/Interface.png)
 
 In this App you can load a random Meme using the [Meme Generator Api](https://imgflip.com/api) and change the captions.
 Individual Images can be uploaded and results can be downloaded with captions.
