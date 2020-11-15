@@ -3,9 +3,11 @@ import Draggable from "react-draggable";
 import domtoimage from "dom-to-image-more";
 import "../Styles/Generator.css";
 
-// Consistent meme size
 // Upload own images
 // Design
+// Deploy
+// Readme
+// Select screen DRY
 // Bugs: see repo
 
 const Generator = ({ meme, changeMeme }) => {
@@ -18,8 +20,8 @@ const Generator = ({ meme, changeMeme }) => {
   // Upon a template change, the input fields are reset and re-aligned to the new template
   useEffect(() => {
     editText([
-      { text: "Enter Text", position: { x: 0, y: -150 } },
-      { text: "Add More Text", position: { x: 0, y: 150 } },
+      { text: "Enter Text", position: { x: 0, y: -100 } },
+      { text: "Add More Text", position: { x: 0, y: 100 } },
     ]);
 
     document

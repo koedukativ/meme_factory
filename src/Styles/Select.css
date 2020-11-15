@@ -10,6 +10,11 @@
 
 .title {
   width: 100%;
+  font-family: "Lobster";
   text-align: center;
   margin: 3rem 0 0 0;
+}
+
+#top {
+  font-size: 6rem;
 }

@@ -23,7 +23,7 @@ function Select() {
 
   return (
     <>
-      <h1 className="title" id="top">
+      <h1 className="title font-effect-shadow-multiple" id="top">
         Meme Machine
       </h1>
       {template ? (
@@ -33,7 +33,7 @@ function Select() {
           changeMeme={setTemplate}
         />
       ) : (
-        <p className="title"> Choose a template!</p>
+        <p className="title"> Choose a template! or</p>
       )}
       <div className="columns is-multiline selectScreen">
         <div className="column is-full-mobile is-half-tablet is-one-quarter-desktop is-one-quarter-widescreen">
