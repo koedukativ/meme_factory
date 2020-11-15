@@ -44,7 +44,7 @@ function Select() {
         />
       ) : (
         <section className="title">
-          <p className="title"> Choose a template! or</p>
+          <p className="title"> Choose a template or</p>
           <button className="button is-primary" onClick={loadRandomMeme}>
             Load Random Meme
           </button>

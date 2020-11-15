@@ -3,8 +3,6 @@ import Draggable from "react-draggable";
 import domtoimage from "dom-to-image-more";
 import "../Styles/Generator.css";
 
-// Upload own images
-// Design
 // Deploy
 // Readme
 // Select screen DRY
@@ -86,7 +84,7 @@ const Generator = ({ meme, changeMeme, loadMeme }) => {
 
   return (
     <section className="section">
-      <div className="container">
+      <div className="topContainer">
         <div className="columns is-multiline is-vcentered box">
           <div className="column is-three-fifths-desktop is-full-tablet is-full-mobile">
             <div className="templateContainer">
@@ -132,6 +130,16 @@ const Generator = ({ meme, changeMeme, loadMeme }) => {
               <button className="button is-warning" onClick={reset}>
                 Close Editior
               </button>
+              <label for="file-upload" class="button is-link">
+                Upload Own Image
+              </label>
+              <input
+                id="file-upload"
+                className="fileInput"
+                onChange={addMeme}
+                type="file"
+                multiple
+              />
               <p className="buttons">
                 <button
                   className="button is-info"
@@ -150,12 +158,6 @@ const Generator = ({ meme, changeMeme, loadMeme }) => {
                   </span>
                 </button>
               </p>
-              <input
-                className="button fileInput"
-                onChange={addMeme}
-                type="file"
-                multiple
-              ></input>
             </div>
             <div className="inputFields">
               {memeText

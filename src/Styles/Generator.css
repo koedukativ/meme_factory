@@ -1,3 +1,21 @@
+input[type="file"] {
+  display: none;
+}
+
+.topContainer {
+  flex-grow: 1;
+  margin: 0 auto;
+  position: relative;
+  width: auto;
+  max-width: 90%;
+}
+
+@media screen and (min-width: 922px) {
+  .topContainer {
+    max-width: 80%;
+  }
+}
+
 .templateContainer {
   display: table;
   max-height: 70vh;
@@ -31,6 +49,7 @@
 
 #memePic {
   max-height: 70vh;
+  max-width: 60vh;
   pointer-events: none;
   object-fit: scale-down;
 }
