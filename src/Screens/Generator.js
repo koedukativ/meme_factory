@@ -55,7 +55,7 @@ const Generator = ({ meme, changeMeme, loadMeme }) => {
   const addMeme = () => {
     const newMeme = {};
     newMeme.url = URL.createObjectURL(
-      document.querySelector("#input").files[0]
+      document.querySelector(".fileInput").files[0]
     );
     changeMeme(newMeme);
   };
@@ -150,12 +150,12 @@ const Generator = ({ meme, changeMeme, loadMeme }) => {
                   </span>
                 </button>
               </p>
-              {/*               <input
-                className="button"
+              <input
+                className="button fileInput"
                 onChange={addMeme}
                 type="file"
                 multiple
-              ></input> */}
+              ></input>
             </div>
             <div className="inputFields">
               {memeText
