@@ -6,14 +6,20 @@ import Generator from "../Screens/Generator";
 // Refactor display of 4 columns with less code
 
 function Select() {
-  const [memes, setMemes] = useState();
+  const [memes, setMemes] = useState([]);
   const [template, setTemplate] = useState();
 
   const loadMemes = () => {
     fetch("https://api.imgflip.com/get_memes")
       .then((response) => response.json())
       .then((response) => {
-        setMemes(response.data.memes);
+        const memeArray = [];
+        memeArray[0] = response.data.memes.slice(0, 25);
+        memeArray[1] = response.data.memes.slice(25, 50);
+        memeArray[2] = response.data.memes.slice(50, 77);
+        memeArray[3] = response.data.memes.slice(77, 100);
+        console.log(memeArray);
+        setMemes(memeArray);
       });
   };
 
@@ -52,101 +58,30 @@ function Select() {
         </section>
       )}
       <div className="columns is-multiline selectScreen">
-        <div className="column is-full-mobile is-half-tablet is-one-quarter-desktop is-one-quarter-widescreen">
-          {memes ? (
-            memes.map((element, index) => {
-              if (index > 24) {
-              } else {
-                return (
-                  <div className="box" key={index}>
-                    <a
-                      href="#top"
-                      onClick={() => {
-                        setTemplate(element);
-                      }}
-                    >
-                      <MemePreview element={element} />
-                    </a>
-                  </div>
-                );
-              }
-            })
-          ) : (
-            <p>Loading...</p>
-          )}
-        </div>
-        <div className="column is-full-mobile is-half-tablet is-one-quarter-desktop is-one-quarter-widescreen">
-          {memes ? (
-            memes.map((element, index) => {
-              if (index < 25 || index > 49) {
-              } else {
-                return (
-                  <div className="box" key={index}>
-                    <a
-                      key={index}
-                      href="#top"
-                      onClick={() => {
-                        setTemplate(element);
-                      }}
-                    >
-                      <MemePreview element={element} />
-                    </a>
-                  </div>
-                );
-              }
-            })
-          ) : (
-            <p>Loading...</p>
-          )}
-        </div>
-        <div className="column is-full-mobile is-half-tablet is-one-quarter-desktop is-one-quarter-widescreen">
-          {memes ? (
-            memes.map((element, index) => {
-              if (index < 50 || index > 76) {
-              } else {
-                return (
-                  <div className="box" key={index}>
-                    <a
-                      key={index}
-                      href="#top"
-                      onClick={() => {
-                        setTemplate(element);
-                      }}
-                    >
-                      <MemePreview element={element} />
-                    </a>
-                  </div>
-                );
-              }
-            })
-          ) : (
-            <p>Loading...</p>
-          )}
-        </div>
-        <div className="column is-full-mobile is-half-tablet is-one-quarter-desktop is-one-quarter-widescreen">
-          {memes ? (
-            memes.map((element, index) => {
-              if (index < 77) {
-              } else {
-                return (
-                  <div className="box" key={index}>
-                    <a
-                      key={index}
-                      href="#top"
-                      onClick={() => {
-                        setTemplate(element);
-                      }}
-                    >
-                      <MemePreview element={element} />
-                    </a>
-                  </div>
-                );
-              }
-            })
-          ) : (
-            <p>Loading...</p>
-          )}
-        </div>
+        {memes ? (
+          memes.map((memeList, index) => {
+            return (
+              <div className="column is-full-mobile is-half-tablet is-one-quarter-desktop is-one-quarter-widescreen">
+                {memeList.map((element, index) => {
+                  return (
+                    <div className="box" key={index}>
+                      <a
+                        href="#top"
+                        onClick={() => {
+                          setTemplate(element);
+                        }}
+                      >
+                        <MemePreview element={element} />
+                      </a>
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          })
+        ) : (
+          <p>Loading...</p>
+        )}
       </div>
     </>
   );
