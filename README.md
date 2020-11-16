@@ -1,6 +1,8 @@
 ## Project Overview
 
+<p align="center">
 <img height=600 src="img/interface.png">
+</p>
 
 With this Meme Generator, text can be added to images and downloaded to a local device.
 The text can be edited, dragged and changed in size. The user may upload their own images.
