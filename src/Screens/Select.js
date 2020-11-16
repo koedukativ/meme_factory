@@ -40,21 +40,23 @@ function Select() {
       <h1 className="title font-effect-shadow-multiple" id="top">
         Meme Machine
       </h1>
-      {template ? (
-        <Generator
-          className="generator"
-          meme={template}
-          changeMeme={setTemplate}
-          loadMeme={loadRandomMeme}
-        />
-      ) : (
-        <section className="title">
-          <p className="title"> Choose a template or</p>
-          <button className="button is-primary" onClick={loadRandomMeme}>
-            Load Random Meme
-          </button>
-        </section>
-      )}
+      <section id="generator">
+        {template ? (
+          <Generator
+            className="generator"
+            meme={template}
+            changeMeme={setTemplate}
+            loadMeme={loadRandomMeme}
+          />
+        ) : (
+          <section className="title">
+            <p className="title"> Choose a template or</p>
+            <button className="button is-primary" onClick={loadRandomMeme}>
+              Load Random Meme
+            </button>
+          </section>
+        )}
+      </section>
       <div className="columns is-multiline selectScreen">
         {memes ? (
           memes.map((memeList, index) => {
@@ -64,6 +66,7 @@ function Select() {
                   return (
                     <div className="box" key={index}>
                       <a
+                        href="#generator"
                         onClick={() => {
                           setTemplate(element);
                         }}
