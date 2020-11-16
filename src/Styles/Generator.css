@@ -71,12 +71,12 @@ input[type="file"] {
 @media screen and (min-width: 768px) {
   .memeDownload {
     min-height: 350px;
-    max-height: 550px;
+    max-height: 450px;
   }
 
   #memePic {
     min-height: 350px;
-    max-height: 550px;
+    max-height: 450px;
   }
 
   .topContainer {
@@ -84,7 +84,7 @@ input[type="file"] {
   }
 
   .templateContainer {
-    height: 600px;
+    height: 500px;
   }
 }
 
