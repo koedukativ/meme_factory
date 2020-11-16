@@ -3,8 +3,6 @@ import "../Styles/Select.css";
 import MemePreview from "../Components/MemePreview";
 import Generator from "../Screens/Generator";
 
-// Refactor display of 4 columns with less code
-
 function Select() {
   const [memes, setMemes] = useState([]);
   const [template, setTemplate] = useState();
@@ -29,8 +27,8 @@ function Select() {
       .then((response) => response.json())
       .then((response) =>
         setTemplate(response.data.memes[Math.floor(Math.random() * 100)])
-      );
-    window.scroll({ top: 0, left: 0 });
+      )
+      .then(() => window.scroll({ top: 200, left: 0 }));
   };
 
   useEffect(() => {

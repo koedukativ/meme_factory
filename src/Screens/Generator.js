@@ -3,11 +3,6 @@ import Draggable from "react-draggable";
 import domtoimage from "dom-to-image-more";
 import "../Styles/Generator.css";
 
-// Select screen DRY
-// Bugs: see repo
-// Deploy
-// Readme
-
 const Generator = ({ meme, changeMeme, loadMeme }) => {
   const [memeText, editText] = useState([]);
   const [textStyle, changeTextStyle] = useState({
