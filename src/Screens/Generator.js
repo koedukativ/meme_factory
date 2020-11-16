@@ -3,10 +3,10 @@ import Draggable from "react-draggable";
 import domtoimage from "dom-to-image-more";
 import "../Styles/Generator.css";
 
-// Deploy
-// Readme
 // Select screen DRY
 // Bugs: see repo
+// Deploy
+// Readme
 
 const Generator = ({ meme, changeMeme, loadMeme }) => {
   const [memeText, editText] = useState([]);
@@ -30,7 +30,7 @@ const Generator = ({ meme, changeMeme, loadMeme }) => {
   // Takes input number and edits the corresponding text
   const changeText = (num) => {
     const textCopy = [...memeText];
-    textCopy[num].text = document.querySelectorAll("input")[num].value;
+    textCopy[num].text = document.querySelectorAll("input")[num + 1].value;
     editText(textCopy);
   };
 
@@ -85,9 +85,9 @@ const Generator = ({ meme, changeMeme, loadMeme }) => {
   return (
     <section className="section">
       <div className="topContainer">
-        <div className="columns is-multiline is-vcentered box">
-          <div className="column is-three-fifths-desktop is-full-tablet is-full-mobile">
-            <div className="templateContainer">
+        <div className="box">
+          <div className="templateContainer">
+            <div className="table">
               <div
                 className="memeDownload"
                 style={{ position: "relative", overflow: "hidden" }}
@@ -116,8 +116,22 @@ const Generator = ({ meme, changeMeme, loadMeme }) => {
               </div>
             </div>
           </div>
-          <div className="column is-two-fifths-desktop is-full-tablet is-full-mobile options">
-            <div className="buttons">
+          <div className="options">
+            <div className="inputFields">
+              {memeText
+                ? memeText.map((element, index) => (
+                    <input
+                      className="textInput"
+                      key={index}
+                      placeholder="Enter Text"
+                      onChange={() => {
+                        changeText(index);
+                      }}
+                    />
+                  ))
+                : null}
+            </div>
+            <div className="buttonsList">
               <button className="button is-primary" onClick={loadMeme}>
                 Load Random Meme
               </button>
@@ -140,38 +154,17 @@ const Generator = ({ meme, changeMeme, loadMeme }) => {
                 type="file"
                 multiple
               />
-              <p className="buttons">
-                <button
-                  className="button is-info"
-                  onClick={() => changeSize(-2)}
-                >
-                  <span className="icon is-small">
-                    <i className="fas fa-heading">a</i>
-                  </span>
-                </button>
-                <button
-                  className="button is-info"
-                  onClick={() => changeSize(2)}
-                >
-                  <span className="icon">
-                    <i className="fas fa-heading fa-lg">A</i>
-                  </span>
-                </button>
-              </p>
-            </div>
-            <div className="inputFields">
-              {memeText
-                ? memeText.map((element, index) => (
-                    <input
-                      className="textInput"
-                      key={index}
-                      placeholder="Enter Text"
-                      onChange={() => {
-                        changeText(index);
-                      }}
-                    />
-                  ))
-                : null}
+
+              <button className="button is-info" onClick={() => changeSize(-2)}>
+                <span className="icon is-small">
+                  <i className="fas fa-heading">a</i>
+                </span>
+              </button>
+              <button className="button is-info" onClick={() => changeSize(2)}>
+                <span className="icon">
+                  <i className="fas fa-heading fa-lg">A</i>
+                </span>
+              </button>
             </div>
           </div>
         </div>

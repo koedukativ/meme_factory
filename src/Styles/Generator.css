@@ -7,34 +7,62 @@ input[type="file"] {
   margin: 0 auto;
   position: relative;
   width: auto;
+  height: auto;
   max-width: 100%;
-}
-
-@media screen and (min-width: 600px) {
-  .topContainer {
-    max-width: 90%;
-  }
-}
-
-@media screen and (min-width: 900px) {
-  .topContainer {
-    max-width: 80%;
-  }
+  max-height: 100%;
 }
 
 .templateContainer {
-  display: table;
-  max-height: 70vh;
+  display: flex;
+  height: 700px;
   margin: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonsList,
+.inputFields {
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto;
 }
 
 .memeDownload {
   display: flex;
+  min-height: 250px;
+  max-height: 450px;
   align-items: center;
   justify-content: center;
-  padding: 0;
   background: transparent;
-  object-fit: scale-down;
+}
+
+#memePic {
+  min-height: 250px;
+  max-height: 450px;
+  pointer-events: none;
+  width: auto;
+}
+
+@media screen and (min-width: 1100px) {
+  .memeDownload {
+    min-height: 450px;
+    max-height: 650px;
+  }
+
+  #memePic {
+    min-height: 450px;
+    max-height: 650px;
+  }
+
+  .topContainer {
+    max-width: 85%;
+  }
+}
+
+.table {
+  display: table;
 }
 
 .memeText {
@@ -52,10 +80,4 @@ input[type="file"] {
 .button,
 .textInput {
   margin: 0.5rem;
-}
-
-#memePic {
-  max-height: 70vh;
-  max-width: 60vh;
-  pointer-events: none;
 }
