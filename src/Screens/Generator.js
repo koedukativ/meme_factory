@@ -85,10 +85,7 @@ const Generator = ({ meme, changeMeme, loadMeme }) => {
         <div className="box">
           <div className="templateContainer">
             <div className="table">
-              <div
-                className="memeDownload"
-                style={{ position: "relative", overflow: "hidden" }}
-              >
+              <div className="memeDownload">
                 {memeText
                   ? memeText.map((element, index) => (
                       <Draggable
@@ -107,7 +104,7 @@ const Generator = ({ meme, changeMeme, loadMeme }) => {
                 <img
                   id="memePic"
                   src={meme.url}
-                  alt={`${meme.name} Meme`}
+                  alt={`${meme.name} Meme ${meme.height} ${meme.width}`}
                   unselectable="on"
                 />
               </div>
