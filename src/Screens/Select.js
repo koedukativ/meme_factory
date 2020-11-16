@@ -40,6 +40,12 @@ function Select() {
       <h1 className="title font-effect-shadow-multiple" id="top">
         Meme Machine
       </h1>
+      <div className="subtitle">
+        <p>
+          A React App by <a href="https://github.com/seidbar/">seidBar</a> -{" "}
+          <a href="https://github.com/seidbar/meme_factory">Github</a>
+        </p>
+      </div>
       <section id="generator">
         {template ? (
           <Generator

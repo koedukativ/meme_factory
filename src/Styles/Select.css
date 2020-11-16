@@ -12,7 +12,20 @@
   width: 100%;
   font-family: "Lobster";
   text-align: center;
-  margin: 3rem 0 0 0;
+  margin: 3rem 0 1rem 0;
+}
+
+.subtitle {
+  font-family: Lobster;
+  text-align: center;
+}
+
+.subtitle p {
+  margin: 1rem 0;
+}
+
+.logo {
+  width: 30px;
 }
 
 #top {
