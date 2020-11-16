@@ -17,10 +17,7 @@ const Generator = ({ meme, changeMeme, loadMeme }) => {
 
   // Upon a template change, the input fields are reset and re-aligned to the new template
   useEffect(() => {
-    editText([
-      { text: "Enter Text", position: { x: 0, y: -100 } },
-      { text: "Add More Text", position: { x: 0, y: 100 } },
-    ]);
+    editText([]);
 
     document
       .querySelectorAll(".textInput")
@@ -30,7 +27,7 @@ const Generator = ({ meme, changeMeme, loadMeme }) => {
   // Takes input number and edits the corresponding text
   const changeText = (num) => {
     const textCopy = [...memeText];
-    textCopy[num].text = document.querySelectorAll("input")[num + 1].value;
+    textCopy[num].text = document.querySelectorAll("input")[num].value;
     editText(textCopy);
   };
 
@@ -45,7 +42,7 @@ const Generator = ({ meme, changeMeme, loadMeme }) => {
   const addText = () => {
     if (memeText.length < 8) {
       const textCopy = [...memeText];
-      textCopy.push({ text: "More Text", position: { x: 0, y: 0 } });
+      textCopy.push({ text: "Enter Text", position: { x: 0, y: 0 } });
       editText(textCopy);
     }
   };
