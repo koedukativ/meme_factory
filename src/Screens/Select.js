@@ -28,7 +28,7 @@ function Select() {
       .then((response) =>
         setTemplate(response.data.memes[Math.floor(Math.random() * 100)])
       )
-      .then(() => window.scroll({ top: 50, left: 0 }));
+      .then(() => window.scroll({ top: 200, left: 0 }));
   };
 
   useEffect(() => {
@@ -64,7 +64,6 @@ function Select() {
                   return (
                     <div className="box" key={index}>
                       <a
-                        href="#top"
                         onClick={() => {
                           setTemplate(element);
                         }}
