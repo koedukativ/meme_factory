@@ -28,7 +28,7 @@ function Select() {
       .then((response) =>
         setTemplate(response.data.memes[Math.floor(Math.random() * 100)])
       )
-      .then(() => window.scroll({ top: 200, left: 0 }));
+      .then(() => window.scroll({ top: 50, left: 0 }));
   };
 
   useEffect(() => {
