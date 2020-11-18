@@ -1,20 +1,17 @@
 ## Project Overview
 
-![Project Overview](img/Interface.png)
+<p align="center">
+<img height=600 src="img/interface.png">
+</p>
 
-In this App you can load a random Meme using the [Meme Generator Api](https://imgflip.com/api) and change the captions.
-Individual Images can be uploaded and results can be downloaded with captions.
-The Captions can be dragged and dropped.
+With this Meme Generator, text can be added to images and downloaded to a local device.
+The text can be edited, dragged and changed in size. The user may upload their own images.
+You can find the live demo hosted [on Heroku](https://meme-factory22.herokuapp.com/#top).
 
-## Getting Started
+## Acknowledgements
 
-### Prerequisites
-
-* Node JS
-```sh
-npm install
-```
-```sh
-npm install dom-to-image
-```
-
+* App created with [React](https://reactjs.org/)
+* Memes generated with [IMGFlip API](https://imgflip.com/api)
+* Sass powered by [Bulma](https://bulma.io/)
+* Draggable components with [React-Draggable](https://github.com/STRML/react-draggable)
+* Image download with [DOM to Image](https://github.com/1904labs/dom-to-image-more)
