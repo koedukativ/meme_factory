@@ -65,10 +65,10 @@ const Generator = ({ meme, changeMeme, loadMeme }) => {
   // Uses domtoimage to download the .memeDownload <div>
   const download = () => {
     domtoimage
-      .toJpeg(document.querySelector(".memeDownload"), { quality: 1.0 })
-      .then(function (dataUrl) {
+      .toPng(document.querySelector(".memeDownload"), { quality: 1.0 })
+      .then((dataUrl) => {
         const link = document.createElement("a");
-        link.download = "my-meme.jpg";
+        link.download = "my-meme.png";
         link.href = dataUrl;
         link.click();
       });

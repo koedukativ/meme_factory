@@ -90,20 +90,16 @@ input[type="file"] {
 
 @media screen and (min-width: 1100px) {
   .memeDownload {
-    min-height: 450px;
-    max-height: 650px;
+    min-height: 500px;
+    max-height: 600px;
   }
 
   #memePic {
-    min-height: 450px;
-    max-height: 650px;
-  }
-
-  .topContainer {
-    max-width: 85%;
+    min-height: 500px;
+    max-height: 600px;
   }
 
   .templateContainer {
-    height: 700px;
+    height: 650px;
   }
 }
